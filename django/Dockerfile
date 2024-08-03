@@ -6,12 +6,9 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-RUN django-admin startproject hello
+ADD https://github.com/tateishi/test-django-hello.git app
 
-COPY settings_ex.py .
-RUN cat settings_ex.py >> hello/hello/settings.py
-
-WORKDIR /code/hello
+WORKDIR /code/app/hello
 RUN python manage.py collectstatic
 
 CMD uvicorn hello.asgi:application --host 0.0.0.0 --port 8000
