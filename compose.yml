@@ -2,6 +2,10 @@ services:
   default:
     build:
       context: ./django
+      args:
+        DJANGO_SUPERUSER_NAME: ${DJANGO_SUPERUSER_NAME}
+        DJANGO_SUPERUSER_EMAIL: ${DJANGO_SUPERUSER_EMAIL}
+        DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
     ports:
       - 8000:8000
     stdin_open: true
