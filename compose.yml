@@ -1,0 +1,8 @@
+services:
+  default:
+    build:
+      context: ./django
+    ports:
+      - 8000:8000
+    stdin_open: true
+    tty: true
